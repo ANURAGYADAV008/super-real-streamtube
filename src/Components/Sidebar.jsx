@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   HomeIcon,
   SubscriptIcon,
@@ -17,16 +18,21 @@ import {
 } from "lucide-react";
 
 const SideBar = () => {
-  const sidebarOpen = useSelector((state) => state.sidebar); // state from store
+  const sidebarOpen = useSelector((state) => state.sidebar.isMenuOpen); // state from store
 
-   if (!sidebarOpen) return null; // hide sidebar if false
+   if (!sidebarOpen) return null;
+   
+   
+   // hide sidebar if false
 
    return(
-    <div className="border-r-2 pt-5">
+    <div className="col-span-2 border-r-2 pt-5">
+      <Link to="/">
       <span className="flex pl-2 pb-4">
         <HomeIcon/>
         <p className="px-3">Home</p>
       </span>
+      </Link>
       <span className="flex pl-2 pb-5">
         <Video/>
         <p className="px-3">Subscription</p>

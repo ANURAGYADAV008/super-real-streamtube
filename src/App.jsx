@@ -1,9 +1,10 @@
 import Body from "./Components/Body"
+import Header from "./Components/Header";
 import MainContainer from "./Components/Maincontainer";
 import MainVideo from "./Components/Mainvideo";
 import appStore from "./utils/Appstore";
 import {Provider} from "react-redux"
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import {createBrowserRouter, RouterProvider,Routes, Route} from "react-router-dom"
 
 const approuter=createBrowserRouter([
     {
@@ -15,7 +16,7 @@ const approuter=createBrowserRouter([
                 element:<MainContainer/>
             },
             {
-                path:"/watch",
+                path:"/watch/:id",
                 element:<MainVideo/>
             }
         ]
@@ -27,6 +28,7 @@ const App = () => {
     return (
         <Provider store={appStore}>
             
+            <Header/>
             <RouterProvider router={approuter}></RouterProvider>
 
             

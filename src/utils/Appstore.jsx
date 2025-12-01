@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import toggleSlice from "./toggle"
+import appReducer from "./toggle"
 const appStore=configureStore({
     reducer:{
-        sidebar:toggleSlice
+        sidebar:appReducer
     }
 })
 export default appStore;

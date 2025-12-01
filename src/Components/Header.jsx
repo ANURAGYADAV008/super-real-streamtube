@@ -5,11 +5,10 @@ import { toggleSidebar } from "../utils/toggle"; // match the export exactly
 
 const Header = () => {
   const dispatch = useDispatch();
-  const sidebarOpen = useSelector((state) => state.sidebar);
 
 
   return (
-    <div className="w-full p-4 bg-white text-black  shadow-lg ">
+    <div className="w-full p-3 bg-white text-black  shadow-lg h-12">
       <div className="flex items-center justify-between space-x-4">
         {/* Left section */}
         <div className="flex items-center space-x-2 cursor-pointer">

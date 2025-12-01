@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import Videocart from "./videocart";
+import FeedButton from "./FeedButton";
 const VideoContainer = () => {
     const [video, setVideo] = useState([]);
+    const feed = ["All","Gaming", "Music", "Dsa", "Comedy", "Web", "Physics", "SciFie","News","Cricket","Action","Api"]
+    
 
     useEffect(() => {
         handleYoutubevideo()
@@ -11,7 +14,7 @@ const VideoContainer = () => {
     const handleYoutubevideo = async () => {
 
             try {
-                const response = await fetch("http://localhost:3050/api/v1/youtube/getvideo");
+                const response = await fetch("super-real-streamtube-production.up.railway.app");
                 const data = await response.json();
                 console.log(data?.video.items)
                 setVideo(data?.video?.items);
@@ -27,7 +30,17 @@ const VideoContainer = () => {
 
 
     return (
-        <div className="flex flex-wrap gap-4 p-4">
+        <div>
+            <div className="flex pt-5">
+            {
+              feed.map((name,idx)=>(
+                <FeedButton key={idx} feed={name}/>
+              ))
+            }
+            </div>
+
+
+            <div className="flex flex-wrap gap-5 p-4">
             {
                 video.length>0?(
                     video.map((items)=>(
@@ -38,6 +51,7 @@ const VideoContainer = () => {
                 )
             }
             
+        </div>
         </div>
 
 
