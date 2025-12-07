@@ -14,7 +14,7 @@ const VideoContainer = () => {
     const handleYoutubevideo = async () => {
 
             try {
-                const response = await fetch("https://super-real-streamtube-production.up.railway.app/api/v1/youtube");
+                const response = await fetch("https://super-real-streamtube-production.up.railway.app/api/v1/youtube/getvideo");
                 const data = await response.json();
                 console.log(data?.video.items)
                 setVideo(data?.video?.items);
